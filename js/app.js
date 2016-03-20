@@ -22,21 +22,28 @@ var $topMid = $("topMid");
     }
   });
 
-  $(this).find($box).click( function tie(event){
-    if ($("#topLeft").text() === "X" || $("#topLeft").text() === "O" &&
-        $("#topMid").text() === "X" || $("#topMid").text() ===  "O" &&
-        $("#topRight").text() === "X" || $("#topRight").text() === "O" &&
-        $("#midLeft").text() === "X" || $("#midLeft").text() === "O" &&
-        $("#midMid").text() === "X" || $("#midMid").text() === "O" &&
-        $("#midRight").text() === "X" || $("#midRight").text() === "O" &&
-        $("#botLeft").text() === "X" || $("#botLeft").text() === "O" &&
-        $("#botMid").text() === "X" || $("#botMid").text() === "O" &&
-        $("#botRight").text() === "X" || $("#botRight").text() === "O" ) {
-    console.log("TIE");
+  $(this).find(".box").click( function gameOver(){
+    if ($("#topLeft").text() &&
+        $("#topMid").text() &&
+        $("#topRight").text() &&
+        $("#midLeft").text()  &&
+        $("#midMid").text()  &&
+        $("#midRight").text() &&
+        $("#botLeft").text() &&
+        $("#botMid").text() &&
+        $("#botRight").text() === "X") {
+    $($box).fadeTo( "slow" , 0.25, function() {
+      $(".gameOver").text("Game is over");
+
+  });
+  $("h1").text("Game is over");
+
+
   } else {
-    console.log("not tie");
+    console.log("not");
   }
 });
+
 /*  $(".refresh").on("mouseover", function dude(){
       $(".refresh").animate({
 
