@@ -31,9 +31,9 @@ var $player2 = "O";
         $("div").effect( "shake",{times:2}, 270  );
     }
     // SETTING WINS FOR X
-    if (($("#topLeft").text() == "X" && $("#topMid").text()== "X" && $("#topRight").text()== "X") ||
+    if (($("#topLeft").text() == "X" && $("#topMid").text()== "X" && $("#topRight").text()== "X")||
         ($("#midLeft").text()== "X" && $("#midMid").text()== "X" && $("#midRight").text()== "X") ||
-        ($("#botLeft").text()== "X" && $("#botMid").text()== "X" && $("#botRight").text()== "X")||
+        ($("#botLeft").text()== "X" && $("#botMid").text()== "X" && $("#botRight").text()== "X") ||
         ($("#topLeft").text()== "X" && $("#midMid").text()== "X" && $("#botRight").text()== "X") ||
         ($("#topRight").text()== "X" && $("#midMid").text()== "X" && $("#botLeft").text()== "X") ||
         ($("#topLeft").text()== "X" && $("#midLeft").text()== "X" && $("#botLeft").text()== "X") ||
@@ -45,25 +45,37 @@ var $player2 = "O";
             $("h1").text("WINNER X");
             $($box).off('click');
         });
-
+    // SETTING WINS FOR O
       }  if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
           ($("#midLeft").text()== "O" && $("#midMid").text()== "O" && $("#midRight").text()== "O") ||
           ($("#botLeft").text()== "O" && $("#botMid").text()== "O" && $("#botRight").text()== "O") ||
           ($("#topLeft").text()== "O" && $("#midMid").text()== "O" && $("#botRight").text()== "O") ||
-          ($("#topRight").text()== "O" && $("#midMid").text()== "O" && $("#botLeft").text()== "O")
+          ($("#topRight").text()== "O" && $("#midMid").text()== "O" && $("#botLeft").text()== "O") ||
           ($("#topLeft").text()== "O" && $("#midLeft").text()== "O" && $("#botLeft").text()== "O") ||
           ($("#topMid").text()== "O" && $("#midMid").text()== "O" && $("#botMid").text()== "O")    ||
           ($("#topRight").text()== "O" && $("#midRight").text()== "O" && $("#botRight").text()== "O") ){
             console.log("O won");
 
             $($box).fadeTo( "slow" , 0.25, function() {
-              $("h1").text("WINNER ");
+              $("h1").text("WINNER O");
               $($box).off('click');
           });
 
          }
 
   });
+
+
+
+/*  $(".refresh").on("mouseover", function dude(){
+      $(".refresh").animate({
+
+        "font-size": "60px"
+
+
+      }, 1000);
+
+  }); */
 
   $(this).find(".box").click( function gameOver(){
     if ($("#topLeft").text() &&
@@ -79,21 +91,9 @@ var $player2 = "O";
 
 
   });
-  $("h1").text("Game is over");
+  $("h1").text("Tie");
 
 
   }
 });
-
-/*  $(".refresh").on("mouseover", function dude(){
-      $(".refresh").animate({
-
-        "font-size": "60px"
-
-
-      }, 1000);
-
-  }); */
-
-
 });
