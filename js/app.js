@@ -4,17 +4,7 @@ $(document).ready(function() {
   // goes inside this function
 var $turn = 2;
 var $box = $(".box");
-var $topLeft = $("#topLeft");
-var $topMid = $("topMid");
-var $topRight = $("topRight");
-var $midLeft = $("midLeft");
-var $midMid = $("midMid");
-var $midRight = $("midRight");
-var $botLeft = $("botLeft");
-var $botMid = $("botMid");
-var $botRight = $("botRight");
-var $player1 = "X";
-var $player2 = "O";
+
 // Checks if tile is empty or not and decides player turn
   $(this).find($box).click( function game(event){
     if ($(this).text() === ""){
@@ -66,17 +56,6 @@ var $player2 = "O";
   });
 
 
-
-/*  $(".refresh").on("mouseover", function dude(){
-      $(".refresh").animate({
-
-        "font-size": "60px"
-
-
-      }, 1000);
-
-  }); */
-
   $(this).find(".box").click( function gameOver(){
     if ($("#topLeft").text() &&
         $("#topMid").text() &&
@@ -88,7 +67,7 @@ var $player2 = "O";
         $("#botMid").text() &&
         $("#botRight").text() === "X") {
     $($box).fadeTo( "slow" , 0.25, function() {
-
+    $($box).off('click');
 
   });
   $("h1").text("Tie");
