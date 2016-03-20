@@ -35,7 +35,10 @@ var $player2 = "O";
         ($("#midLeft").text()== "X" && $("#midMid").text()== "X" && $("#midRight").text()== "X") ||
         ($("#botLeft").text()== "X" && $("#botMid").text()== "X" && $("#botRight").text()== "X")||
         ($("#topLeft").text()== "X" && $("#midMid").text()== "X" && $("#botRight").text()== "X") ||
-        ($("#topRight").text()== "X" && $("#midMid").text()== "X" && $("#botLeft").text()== "X") ){
+        ($("#topRight").text()== "X" && $("#midMid").text()== "X" && $("#botLeft").text()== "X") ||
+        ($("#topLeft").text()== "X" && $("#midLeft").text()== "X" && $("#botLeft").text()== "X") ||
+        ($("#topMid").text()== "X" && $("#midMid").text()== "X" && $("#botMid").text()== "X")    ||
+        ($("#topRight").text()== "X" && $("#midRight").text()== "X" && $("#botRight").text()== "X")){
           console.log("X won");
 
           $($box).fadeTo( "slow" , 0.25, function() {
@@ -43,15 +46,18 @@ var $player2 = "O";
             $($box).off('click');
         });
 
-      } else if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
+      }  if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
           ($("#midLeft").text()== "O" && $("#midMid").text()== "O" && $("#midRight").text()== "O") ||
           ($("#botLeft").text()== "O" && $("#botMid").text()== "O" && $("#botRight").text()== "O") ||
           ($("#topLeft").text()== "O" && $("#midMid").text()== "O" && $("#botRight").text()== "O") ||
-          ($("#topRight").text()== "O" && $("#midMid").text()== "O" && $("#botLeft").text()== "O") ){
+          ($("#topRight").text()== "O" && $("#midMid").text()== "O" && $("#botLeft").text()== "O")
+          ($("#topLeft").text()== "O" && $("#midLeft").text()== "O" && $("#botLeft").text()== "O") ||
+          ($("#topMid").text()== "O" && $("#midMid").text()== "O" && $("#botMid").text()== "O")    ||
+          ($("#topRight").text()== "O" && $("#midRight").text()== "O" && $("#botRight").text()== "O") ){
             console.log("O won");
 
             $($box).fadeTo( "slow" , 0.25, function() {
-              $("h1").text("WINNER O");
+              $("h1").text("WINNER ");
               $($box).off('click');
           });
 
