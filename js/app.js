@@ -13,6 +13,9 @@ var $midRight = $("midRight");
 var $botLeft = $("botLeft");
 var $botMid = $("botMid");
 var $botRight = $("botRight");
+var $player1 = "X";
+var $player2 = "O";
+// Checks if tile is empty or not and decides player turn
   $(this).find($box).click( function game(event){
     if ($(this).text() === ""){
         if ($turn %2 === 0){
@@ -23,25 +26,37 @@ var $botRight = $("botRight");
     $turn = $turn + 1;
     }
     else {
+        // If player tries to play on a tile that was already played. It shakes the screen showing playing error.
         console.log("there is text");
         $("div").effect( "shake",{times:2}, 270  );
     }
     // SETTING WINS FOR X
-    if ($("#topLeft") && $("#topMid") && $("#topRight").is(':contains("X")') ||
-        $("#midLeft") && $("#midMid") && $("#midRight").is(':contains("X")') ||
-        $("#botLeft") && $("#botMid") && $("#botRight").is(':contains("X")') ||
-        $("#topLeft") && $("#midMid") && $("#botRight").is(':contains("X")') ||
-        $("#topRight") && $("#midMid") && $("#botLeft").is(':contains("X")')) {
-          console.log("X WON");
-       }
-    // SETTING WINS FOR O
-    if ($("#topLeft") && $("#topMid") && $("#topRight").is(':contains("O")') ||
-        $("#midLeft") && $("#midMid") && $("#midRight").is(':contains("O")') ||
-        $("#botLeft") && $("#botMid") && $("#botRight").is(':contains("O")') ||
-        $("#topLeft") && $("#midMid") && $("#botRight").is(':contains("O")') ||
-        $("#topRight") && $("#midMid") && $("#botLeft").is(':contains("O")')) {
-          console.log("O WON");
-       }
+    if (($("#topLeft").text() == "X" && $("#topMid").text()== "X" && $("#topRight").text()== "X") ||
+        ($("#midLeft").text()== "X" && $("#midMid").text()== "X" && $("#midRight").text()== "X") ||
+        ($("#botLeft").text()== "X" && $("#botMid").text()== "X" && $("#botRight").text()== "X")||
+        ($("#topLeft").text()== "X" && $("#midMid").text()== "X" && $("#botRight").text()== "X") ||
+        ($("#topRight").text()== "X" && $("#midMid").text()== "X" && $("#botLeft").text()== "X") ){
+          console.log("X won");
+
+          $($box).fadeTo( "slow" , 0.25, function() {
+            $("h1").text("WINNER X");
+            $($box).off('click');
+        });
+
+      } else if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
+          ($("#midLeft").text()== "O" && $("#midMid").text()== "O" && $("#midRight").text()== "O") ||
+          ($("#botLeft").text()== "O" && $("#botMid").text()== "O" && $("#botRight").text()== "O") ||
+          ($("#topLeft").text()== "O" && $("#midMid").text()== "O" && $("#botRight").text()== "O") ||
+          ($("#topRight").text()== "O" && $("#midMid").text()== "O" && $("#botLeft").text()== "O") ){
+            console.log("O won");
+
+            $($box).fadeTo( "slow" , 0.25, function() {
+              $("h1").text("WINNER O");
+              $($box).off('click');
+          });
+
+         }
+
   });
 
   $(this).find(".box").click( function gameOver(){
@@ -55,14 +70,12 @@ var $botRight = $("botRight");
         $("#botMid").text() &&
         $("#botRight").text() === "X") {
     $($box).fadeTo( "slow" , 0.25, function() {
-      $(".gameOver").text("Game is over");
+
 
   });
   $("h1").text("Game is over");
 
 
-  } else {
-    console.log("not");
   }
 });
 
