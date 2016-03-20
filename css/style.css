@@ -5,4 +5,46 @@
 .box {
   border: 1px solid black;
   height: 150px;
+  font-size: 100px;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+
+}
+#topLeft{
+  border-left: 0px;
+  border-top: 0px;
+}
+#topMid {
+  border-top: 0px;
+}
+#topRight {
+  border-right: 0px;
+  border-top: 0px;
+}
+#midLeft {
+  border-left: 0px;
+}
+#midRight {
+  border-right: 0px;
+}
+#botLeft {
+  border-left: 0px;
+  border-bottom: 0px;
+}
+#botRight {
+  border-right: 0px;
+  border-bottom: 0px;
+}
+#botMid {
+  border-bottom: 0px;
+}
+title {
+  font-family: 'Noto Sans', sans-serif;
+}
+a:link {
+  
+  color: black;
+}
+a:visited {
+  color:black;
 }
