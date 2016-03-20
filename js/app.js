@@ -33,7 +33,7 @@ var $box = $(".box");
 
           $($box).fadeTo( "slow" , 0.25, function() {
             $("h1").text("WINNER X");
-            $($box).off('click');
+              $($box).attr("disabled", true);
         });
     // SETTING WINS FOR O
       }  if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
@@ -46,9 +46,9 @@ var $box = $(".box");
           ($("#topRight").text()== "O" && $("#midRight").text()== "O" && $("#botRight").text()== "O") ){
             console.log("O won");
 
-            $($box).fadeTo( "slow" , 0.25, function() {
+            $($box).fadeTo( "slow" , 0.25, function(off) {
               $("h1").text("WINNER O");
-              $($box).off('click');
+                $($box).attr("disabled", true);
           });
 
          }
@@ -66,13 +66,23 @@ var $box = $(".box");
         $("#botLeft").text() &&
         $("#botMid").text() &&
         $("#botRight").text() === "X") {
-    $($box).fadeTo( "slow" , 0.25, function() {
-    $($box).off('click');
+    $($box).fadeTo( "slow" , 0.25, function(off) {
+    $($box).attr("disabled", true);
 
   });
   $("h1").text("Tie");
 
 
   }
+});
+$(".refresh").click ( function reset(){
+  $($box).removeAttr("disabled");
+  $($box).fadeTo( "slow" , 0.1, function() {
+  $($box).text('');
+  });
+  $("div").fadeTo( "slow" , 1, function() {
+  $turn = 2;
+  $("h1").text("Tic Tac Toe");
+  });
 });
 });
