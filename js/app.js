@@ -4,10 +4,11 @@ $(document).ready(function() {
   // goes inside this function
 var $turn = 2;
 var $box = $(".box");
+var $off = false;
 
 // Checks if tile is empty or not and decides player turn
   $(this).find($box).click( function game(event){
-    if ($(this).text() === ""){
+    if ($(this).text() === "" && $off === false ){
         if ($turn %2 === 0){
         $(this).text("X");
       } else {
@@ -33,7 +34,7 @@ var $box = $(".box");
 
           $($box).fadeTo( "slow" , 0.25, function() {
             $("h1").text("WINNER X");
-              $($box).attr("disabled", true);
+              $off = true;
         });
     // SETTING WINS FOR O
       }  if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
@@ -48,7 +49,7 @@ var $box = $(".box");
 
             $($box).fadeTo( "slow" , 0.25, function(off) {
               $("h1").text("WINNER O");
-                $($box).attr("disabled", true);
+                $off = true;
           });
 
          }
@@ -65,9 +66,9 @@ var $box = $(".box");
         $("#midRight").text() &&
         $("#botLeft").text() &&
         $("#botMid").text() &&
-        $("#botRight").text() === "X") {
+        $("#botRight").text() === "X" && $off === false) {
     $($box).fadeTo( "slow" , 0.25, function(off) {
-    $($box).attr("disabled", true);
+    $off =true;
 
   });
   $("h1").text("Tie");
@@ -76,7 +77,7 @@ var $box = $(".box");
   }
 });
 $(".refresh").click ( function reset(){
-  $($box).removeAttr("disabled");
+  $off = false;
   $($box).fadeTo( "slow" , 0.1, function() {
   $($box).text('');
   });
