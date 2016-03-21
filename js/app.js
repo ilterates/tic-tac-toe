@@ -19,7 +19,7 @@ var $off = false;
     else {
         // If player tries to play on a tile that was already played. It shakes the screen showing playing error.
         console.log("there is text");
-        $("div").effect( "shake",{times:2}, 270  );
+        $($box).effect( "shake",{times:2}, 270  );
     }
     // SETTING WINS FOR X
     if (($("#topLeft").text() == "X" && $("#topMid").text()== "X" && $("#topRight").text()== "X")||

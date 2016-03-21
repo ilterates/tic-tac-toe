@@ -1,9 +1,16 @@
 #board {
   margin-top: 10px;
 }
-
+body {
+  color: white;
+  background-color: rgba(54, 60, 98, 0.86);  //rgba(54, 97, 98, 0.86)
+}
+.col-md-12{
+  color: white;
+}
 .box {
-  border: 1px solid black;
+  color: white;
+  border: 1px solid white;
   height: 150px;
   font-size: 100px;
   text-align: center;
