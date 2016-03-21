@@ -31,10 +31,10 @@ var $off = false;
         ($("#topMid").text()== "X" && $("#midMid").text()== "X" && $("#botMid").text()== "X")    ||
         ($("#topRight").text()== "X" && $("#midRight").text()== "X" && $("#botRight").text()== "X")){
           console.log("X won");
-
+          $off = true;
           $($box).fadeTo( "slow" , 0.25, function() {
             $("h1").text("WINNER X");
-              $off = true;
+
         });
     // SETTING WINS FOR O
       }  if (($("#topLeft").text() == "O" && $("#topMid").text()== "O" && $("#topRight").text()== "O") ||
@@ -46,17 +46,17 @@ var $off = false;
           ($("#topMid").text()== "O" && $("#midMid").text()== "O" && $("#botMid").text()== "O")    ||
           ($("#topRight").text()== "O" && $("#midRight").text()== "O" && $("#botRight").text()== "O") ){
             console.log("O won");
-
+            $off = true;
             $($box).fadeTo( "slow" , 0.25, function(off) {
               $("h1").text("WINNER O");
-                $off = true;
+
           });
 
          }
 
   });
 
-
+ // setting Tie. Buggy Tie
   $(this).find(".box").click( function gameOver(){
     if ($("#topLeft").text() &&
         $("#topMid").text() &&
@@ -66,9 +66,10 @@ var $off = false;
         $("#midRight").text() &&
         $("#botLeft").text() &&
         $("#botMid").text() &&
-        $("#botRight").text() === "X" && $off === false) {
+        $("#botRight").text() === "" && $off === false) {
+      $off =true;
     $($box).fadeTo( "slow" , 0.25, function(off) {
-    $off =true;
+
 
   });
   $("h1").text("Tie");
