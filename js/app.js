@@ -50,6 +50,7 @@ var $off = false;
             $($box).fadeTo( "slow" , 0.25, function(off) {
               $("h1").text("WINNER O");
 
+
           });
 
          }
@@ -66,25 +67,26 @@ var $off = false;
         $("#midRight").text() &&
         $("#botLeft").text() &&
         $("#botMid").text() &&
-        $("#botRight").text() === "" && $off === false) {
-      $off =true;
+        $("#botRight").text() === "X" && $off === false) {
+
     $($box).fadeTo( "slow" , 0.25, function(off) {
 
-
+      $("h1").text("Tie");
+      $off = true;
   });
-  $("h1").text("Tie");
+
 
 
   }
 });
 $(".refresh").click ( function reset(){
-  $off = false;
   $($box).fadeTo( "slow" , 0.1, function() {
   $($box).text('');
   });
   $("div").fadeTo( "slow" , 1, function() {
   $turn = 2;
   $("h1").text("Tic Tac Toe");
+  $off = false;
   });
 });
 });
